@@ -1,0 +1,444 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7f5;
+    color: #26332e;
+}
+
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+header {
+    background: #5f756b;
+    color: white;
+    padding: 35px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 8px;
+    font-size: 32px;
+}
+
+header p {
+    opacity: 0.9;
+    font-size: 16px;
+}
+
+
+/* ========================= */
+/* MAIN */
+/* ========================= */
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+
+/* ========================= */
+/* KARTU SENSOR */
+/* ========================= */
+
+.monitoring {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+
+.card {
+    background: white;
+    padding: 25px 20px;
+    border-radius: 15px;
+    text-align: center;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+    transition: transform 0.2s ease;
+}
+
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+
+.card span {
+    font-size: 38px;
+}
+
+
+.card h3 {
+    margin: 12px 0;
+    font-size: 16px;
+    color: #5f756b;
+}
+
+
+.card p {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+/* ========================= */
+/* INFORMASI */
+/* ========================= */
+
+.info {
+    margin-top: 25px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.info div {
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+.info strong {
+    color: #5f756b;
+}
+
+
+.info p {
+    margin-top: 8px;
+
+    font-size: 18px;
+
+    font-weight: 500;
+}
+
+
+/* ========================= */
+/* GRAFIK */
+/* ========================= */
+
+.charts {
+    margin-top: 30px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+
+.chart-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+.chart-card h2 {
+    margin-bottom: 20px;
+
+    color: #5f756b;
+
+    font-size: 20px;
+}
+
+
+.chart-card canvas {
+    width: 100% !important;
+
+    height: 280px !important;
+}
+
+
+/* ========================= */
+/* RIWAYAT */
+/* ========================= */
+
+.history {
+    margin-top: 30px;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+.history h2 {
+    margin-bottom: 20px;
+
+    color: #5f756b;
+}
+
+
+.table-container {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 700px;
+}
+
+
+th,
+td {
+    padding: 12px;
+
+    border-bottom: 1px solid #ddd;
+
+    text-align: center;
+}
+
+
+th {
+    background: #e4ebe7;
+
+    color: #26332e;
+}
+
+
+tbody tr:hover {
+    background: #f5f8f6;
+}
+
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 900px) {
+
+    .monitoring {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .charts {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    main {
+        width: 94%;
+    }
+
+    .monitoring {
+        grid-template-columns: 1fr;
+    }
+
+    .info {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+}
+/* ========================= */
+/* HEADER RIWAYAT */
+/* ========================= */
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.history-header h2 {
+    margin-bottom: 0;
+}
+
+
+/* ========================= */
+/* TOMBOL DOWNLOAD */
+/* ========================= */
+
+.download-btn {
+    border: none;
+    background: #5f756b;
+    color: white;
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.download-btn:hover {
+    background: #4d6259;
+}
+
+.download-btn:active {
+    transform: scale(0.97);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    .history-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .download-btn {
+        width: 100%;
+    }
+
+}
+
+/* ========================= */
+/* FILTER */
+/* ========================= */
+
+.filters {
+    margin-top: 30px;
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+
+    align-items: end;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+}
+
+
+.filter-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.filter-group label {
+    color: #5f756b;
+
+    font-weight: bold;
+
+    font-size: 14px;
+}
+
+
+.filter-group input,
+.filter-group select {
+    padding: 10px 12px;
+
+    border: 1px solid #d5ddd9;
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: #26332e;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+
+.filter-group input:focus,
+.filter-group select:focus {
+    border-color: #5f756b;
+}
+
+
+.reset-btn {
+    border: none;
+
+    background: #e4ebe7;
+
+    color: #26332e;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.reset-btn:hover {
+    background: #d5dfda;
+}
+
+
+@media (max-width: 600px) {
+
+    .filters {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .filter-group input,
+    .filter-group select,
+    .reset-btn {
+        width: 100%;
+    }
+
+}

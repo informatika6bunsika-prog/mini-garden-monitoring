@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mini Garden Monitoring</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>🌱 Mini Garden Monitoring</h1>
+        <p>Monitoring kondisi tanaman Aglaonema secara real-time</p>
+    </header>
+
+
+    <main>
+
+        <!-- MONITORING CARDS -->
+        <section class="monitoring">
+
+            <div class="card">
+                <div class="card-icon">🌡️</div>
+                <h3>Suhu</h3>
+                <div class="value">
+                    <span id="suhu">--</span> °C
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💧</div>
+                <h3>Kelembapan Udara</h3>
+                <div class="value">
+                    <span id="kelembapan-udara">--</span> %
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🌱</div>
+                <h3>Kelembapan Tanah</h3>
+                <div class="value">
+                    <span id="kelembapan-tanah">--</span> %
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">☀️</div>
+                <h3>Cahaya</h3>
+                <div class="value">
+                    <span id="cahaya">--</span> lux
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- INFORMASI TERAKHIR -->
+        <section class="info-section">
+
+            <div class="info-box">
+                <span>🕒 Waktu</span>
+                <strong id="waktu">--</strong>
+            </div>
+
+            <div class="info-box">
+                <span>🌤️ Periode</span>
+                <strong id="periode">--</strong>
+            </div>
+
+            <div class="info-box">
+                <span>🌿 Kondisi Tanaman</span>
+                <strong id="kondisi">--</strong>
+            </div>
+
+        </section>
+
+
+        <!-- FILTER -->
+        <section class="filters">
+
+            <div class="filter-group">
+                <label for="filterTanggal">
+                    📅 Tanggal
+                </label>
+
+                <input
+                    type="date"
+                    id="filterTanggal"
+                >
+            </div>
+
+
+            <div class="filter-group">
+                <label for="filterPeriode">
+                    🌤️ Periode
+                </label>
+
+                <select id="filterPeriode">
+
+                    <option value="Semua">
+                        Semua Periode
+                    </option>
+
+                    <option value="Pagi">
+                        Pagi
+                    </option>
+
+                    <option value="Siang">
+                        Siang
+                    </option>
+
+                    <option value="Sore">
+                        Sore
+                    </option>
+
+                    <option value="Malam">
+                        Malam
+                    </option>
+
+                </select>
+            </div>
+
+
+            <button
+                id="resetFilter"
+                class="reset-btn"
+            >
+                ↻ Reset Filter
+            </button>
+
+        </section>
+
+
+        <!-- GRAFIK -->
+        <section class="charts">
+
+            <div class="chart-card">
+                <h2>🌡️ Grafik Suhu</h2>
+
+                <canvas id="chartSuhu"></canvas>
+            </div>
+
+
+            <div class="chart-card">
+                <h2>💧 Grafik Kelembapan Udara</h2>
+
+                <canvas id="chartUdara"></canvas>
+            </div>
+
+
+            <div class="chart-card">
+                <h2>🌱 Grafik Kelembapan Tanah</h2>
+
+                <canvas id="chartTanah"></canvas>
+            </div>
+
+
+            <div class="chart-card">
+                <h2>☀️ Grafik Intensitas Cahaya</h2>
+
+                <canvas id="chartCahaya"></canvas>
+            </div>
+
+        </section>
+
+
+        <!-- RIWAYAT DATA -->
+        <section class="history">
+
+            <div class="history-header">
+
+                <div>
+                    <h2>📋 Riwayat Data</h2>
+
+                    <p>
+                        Data sensor berdasarkan filter yang dipilih
+                    </p>
+                </div>
+
+
+                <button
+                    id="downloadCSV"
+                    class="download-btn"
+                >
+                    📥 Download Data CSV
+                </button>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+
+                            <th>Waktu</th>
+
+                            <th>Suhu (°C)</th>
+
+                            <th>Kelembapan Udara (%)</th>
+
+                            <th>Kelembapan Tanah (%)</th>
+
+                            <th>Cahaya (lux)</th>
+
+                            <th>Periode</th>
+
+                            <th>Kondisi Tanaman</th>
+
+                        </tr>
+                    </thead>
+
+
+                    <tbody id="data-table">
+
+                        <tr>
+                            <td colspan="7">
+                                Memuat data...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            🌱 Mini Garden Monitoring
+        </p>
+
+        <p>
+            ESP32 • DHT22 • Soil Moisture • BH1750 • Supabase
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="app.js"></script>
+
+</body>
+</html>
